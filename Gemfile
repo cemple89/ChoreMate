@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'foundation-rails'
 
 group :development, :test do
+  gem 'listen'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'capybara'
