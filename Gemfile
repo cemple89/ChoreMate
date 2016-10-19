@@ -1,6 +1,4 @@
 source 'https://rubygems.org/'
-source "https://rubygems.org"
-ruby "2.2.5"
 
 gem 'rails', '~> 5'
 gem 'pg', '~> 0.15'
@@ -20,6 +18,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'coveralls', require: false
 end
 
 group :production do
