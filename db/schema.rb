@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20161019172913) do
 
   create_table "users", force: :cascade do |t|
     t.string  "name",         null: false
-    t.integer "apartment_id", null: false
+    t.integer "apartment_id"
     t.index ["apartment_id"], name: "index_users_on_apartment_id", using: :btree
   end
 
