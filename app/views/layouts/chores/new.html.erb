@@ -1,0 +1,13 @@
+<h1> Create Chore for <%= @apartment.address %> </h1>
+
+<%= form_for(@chore) do |c| %>
+  <div class="field">
+    <%= c.label :name, "Name" %><br>
+    <%= c.text_field :name %>
+  </div>
+  <div class="field">
+    <%= c.label :completion_interval, "Days Between Completion" %><br>
+    <%= c.text_field :name %>
+  </div>
+
+<%= link_to 'Back', chores_path %>
