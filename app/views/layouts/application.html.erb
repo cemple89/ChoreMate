@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% flash.each do |key, value| %>
+    <div class="flash-container">
+      <%= value %>
+    </div>
+  <% end %>
     <title>ChoreMate</title>
     <%= csrf_meta_tags %>
 
@@ -9,11 +14,7 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-    <div class="flash-container">
-      <%= value %>
-    </div>
-  <% end %>
+
     <%= yield %>
 
 

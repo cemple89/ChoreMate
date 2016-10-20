@@ -7,8 +7,9 @@ class ApartmentsController < ActionController::Base
   end
 
   def show
-    @apartment = current_user.apartment
-    @chores = Chore.find_by(apartment: @apartment)
+    @user = User.find(1)
+    @apartment = @user.apartment
+    @chores = @apartment.chores.order('completion_interval ASC')
     @users = @apartment.users
   end
 
