@@ -6,17 +6,27 @@ describe 'User can' do
   let (:apartment_1) { FactoryGirl.create(:apartment)}
 
 
-  feature 'add a location' do
+  feature 'add a new chore' do
 
     scenario 'user adds a new chore successfully'
-      visit new_chore_path
+      visit apartment_path
+
+      click_link 'Create a New Chore'
+
+      expect_page.to have_content "Create Chore for #{apartment_1.address} "
+
       fill_in 'Name', with: 'Swiffer the Kitchen'
       fill_in 'Days Between Completion', with: '7'
+      choose 'medium chore'
+
 
       click_button 'Add Chore'
 
       expect_page.to have_content 'Chore added successfully'
       expect_page.to have_content 'Swiffer the Kitchen'
+      expect_page.to have_content 'Due in 7 days'
+
+
     end
 
     scenario 'user does not provide proper information for a chore'
@@ -27,4 +37,4 @@ describe 'User can' do
       expect(page).to have_content 'Days Between Completion is not a number'
     end
   end
-end 
+end

@@ -1,4 +1,11 @@
 class Chore < ActiveRecord::Base
+
+  POINTS = [
+    [1, 'light chore'],
+    [2, 'medium chore'],
+    [3, 'heavy chore']
+           ]
+
   belongs_to :apartment
   belongs_to :user
 

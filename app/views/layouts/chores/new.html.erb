@@ -9,5 +9,10 @@
     <%= c.label :completion_interval, "Days Between Completion" %><br>
     <%= c.text_field :name %>
   </div>
+  <div class="field">
+  <%= q.label :score, "Chore Weight" %><br>
+  <%= q.collection_radio_buttons :score, @points_collection, :first, :last %>
+</div>
+
 
 <%= link_to 'Back', chores_path %>
