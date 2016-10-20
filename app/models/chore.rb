@@ -11,9 +11,9 @@ class Chore < ActiveRecord::Base
 
   validates :name, presence: true
   validates :points, presence: true
-  validates :points, numericality: { only_integer: true },
-  validates :points, inclusion: 1...3,
-  validates :completion_interval, numericality: { only_integer: true },
+  validates :points, numericality: { only_integer: true }
+  validates :points, inclusion: 1...3
+  validates :completion_interval, numericality: { only_integer: true }
   validates :completion_interval, presence: true
   validates :apartment_id, presence: true
 
