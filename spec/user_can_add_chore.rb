@@ -24,6 +24,7 @@ describe 'User can' do
 
       expect_page.to have_content 'Chore added successfully'
       expect_page.to have_content 'Swiffer the Kitchen'
+      expect_page.to have_contetn 'Worth 2 points'
       expect_page.to have_content 'Due in 7 days'
 
 
