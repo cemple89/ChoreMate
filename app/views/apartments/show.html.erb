@@ -1,0 +1,8 @@
+<h1> Chores for <%= @apartment.address %> </h1>
+
+<% @chores.each do |chore| %>
+<ul>
+  <li><%= chore.name %></li>
+  <li>worth <%= chore.points %></li>
+</ul>
+<% end %>
