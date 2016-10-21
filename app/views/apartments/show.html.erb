@@ -2,10 +2,72 @@
 
 <%= link_to 'Create a New Chore', new_chore_path %><br>
 
+<% @users.each do |user| %>
+  <ul class= "user-points">
+    <li><%= user.name %><br>
+    <li>Chorescore: <%= user.chorescore %>
+  </ul><br>
+<% end %>
+
 <% @chores.each do |chore| %>
-<ul>
-  <li><%= chore.name %></li><br>
-  <li>Worth <%= chore.points %> points</li><br>
-  <li>Due in <%= chore.completion_interval %> days</li>
-</ul><br>
+  <% if chore.completion_interval < 2 %>
+    <ul class="two-day" >
+      <li><%= chore.name %></li><br>
+      <li>Worth <%= chore.points %> points</li><br>
+      <li>Due in <%= chore.completion_interval %> days</li>
+    </ul>
+    <div class= "claim-chore">
+      <%= link_to "Claim [#{chore.name}]" %>
+    </div><br><br>
+  <% end %>
+<% end %>
+
+<% @chores.each do |chore| %>
+  <% if chore.completion_interval > 2 && chore.completion_interval <= 5  %>
+    <ul class="5-day" >
+      <li><%= chore.name %></li><br>
+      <li>Worth <%= chore.points %> points</li><br>
+      <li>Due in <%= chore.completion_interval %> days</li>
+    </ul>
+    <div class= "claim-chore">
+      <%= form_for(chore) do |c| %>
+      <div class="field">
+        <%= c.hidden_field :user_id, :value => @user.id %>
+      </div>
+      <div class="actions">
+        <%= c.submit "Claim Chore" %>
+      </div>
+    <% end %>
+    <% if chore.user_id != nil %>
+      <h3>Last Completed By: <%= @user.name %></h3>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+<% @chores.each do |chore| %>
+  <% if chore.completion_interval > 5 && chore.completion_interval < 8  %>
+    <ul class="8-day" >
+      <li><%= chore.name %></li><br>
+      <li>Worth <%= chore.points %> points</li><br>
+      <li>Due in <%= chore.completion_interval %> days</li>
+    </ul>
+    <div class= "claim-chore">
+      <%= link_to "Claim [#{chore.name}]" %>
+    </div><br><br>
+  <% end %>
+<% end %>
+
+
+<% @chores.each do |chore| %>
+  <% if chore.completion_interval > 8 %>
+    <ul class="many-day" >
+      <li><%= chore.name %></li><br>
+      <li>Worth <%= chore.points %> points</li><br>
+      <li>Due in <%= chore.completion_interval %> days</li>
+    </ul>
+    <div class= "claim-chore">
+      <%= link_to "Claim [#{chore.name}]" %>
+    </div><br><br>
+ <% end %>
 <% end %>

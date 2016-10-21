@@ -36,11 +36,16 @@ class ChoresController < ActionController::Base
     @points_collection = Chore::POINTS
   end
 
+  def update
+    @user = User.find(1)
+  end
+
+
 
   protected
 
   def chore_params
-    params.require(:chore).permit(:name, :completion_interval, :apartment_id, :points)
+    params.require(:chore).permit(:name, :completion_interval, :apartment_id, :points, :user_id)
   end
 
 
