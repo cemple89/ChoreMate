@@ -1,18 +1,5 @@
-@import main;
-$red: #E00808;
+@import "materialize";
 
-
-ul.two-day {
-  text-align: center;
-  color: $red;
-}
-
-
-body {
-  background: blue;
-  text-align: center;
-}
-
-.html {
-  background-color: blue;
+h1 {
+  background-color: #184B59;
 }
