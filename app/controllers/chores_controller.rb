@@ -1,6 +1,8 @@
+require 'pry'
 class ChoresController < ApplicationController
 
   def new
+    binding.pry
     @user = User.find(1)
     @apartment = @user.apartment
     @chore = Chore.new
@@ -32,8 +34,10 @@ class ChoresController < ApplicationController
   def edit
     @user = User.find(1)
     @apartment = @user.apartment
-    @chore = Chore.new(chore_params, apartment: @apartment)
+    @chore = Chore.find(params[:id])
+    @chore.update_attributes(user_id: params[:user_id])
     @points_collection = Chore::POINTS
+    render json: {message: "You now own this chore!"}, status: :ok
   end
 
   def update
