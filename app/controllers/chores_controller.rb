@@ -1,4 +1,4 @@
-class ChoresController < ActionController::Base
+class ChoresController < ApplicationController
 
   def new
     @user = User.find(1)

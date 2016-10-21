@@ -1,4 +1,4 @@
-class ApartmentsController < ActionController::Base
+class ApartmentsController < ApplicationController
 
   def new
   end
