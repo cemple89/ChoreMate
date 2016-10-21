@@ -30,14 +30,8 @@
       <li>Due in <%= chore.completion_interval %> days</li>
     </ul>
     <div class= "claim-chore">
-      <%= form_for(chore) do |c| %>
-      <div class="field">
-        <%= c.hidden_field :user_id, :value => @user.id %>
-      </div>
-      <div class="actions">
-        <%= c.submit "Claim Chore" %>
-      </div>
-    <% end %>
+      <button class="js-claim-chore", id<%="js-claim-chore-#{chore}" %>, data-user = <%= @user.id %> data-chore = <%= chore %>>Claim Chore</button>
+    </div>
     <% if chore.user_id != nil %>
       <h3>Last Completed By: <%= @user.name %></h3>
     <% end %>
