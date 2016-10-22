@@ -14,7 +14,7 @@
 
 <% @chores.each do |chore| %>
   <% @points = chore.points %>
-  <span id = <% "chore-points-#{chore.id}" %>><% @points %><span>
+  <span class="mychore" id=<%= chore.id %>
   <% if chore.completion_interval < 2 %>
     <ul class="two-day" >
       <li><%= chore.name %></li><br>
@@ -25,15 +25,16 @@
       <button class="js-claim-chore", id<%="js-claim-chore-#{chore}" %>, data-user = <%= @user.id %> data-chore = <%= chore.id %> data-points = <%= chore.points %> data-score = <%= @user.chorescore %>>Claim Chore</button>
     </div>
     <% if chore.user_id != nil %>
-      <h5>Last Completed By: <%= chore.user.name %></h5><br>
+      <h5>Last Completed By: <%= chore.user.name %></h5><br><br>
     <% end %>
   <% end %>
 <% end %>
 
 
+
 <% @chores.each do |chore| %>
   <% @points = chore.points %>
-  <span id = <% "chore-points-#{chore.id}" %>><% @points %><span>
+  <span class="mychore" id=<%= chore.id %>
   <% if chore.completion_interval > 2 && chore.completion_interval <= 5  %>
     <ul class="5-day" >
       <li><%= chore.name %></li><br>
@@ -44,7 +45,7 @@
       <button class="js-claim-chore", id<%="js-claim-chore-#{chore}" %>, data-user = <%= @user.id %> data-chore = <%= chore.id %> data-points = <%= chore.points %> data-score = <%= @user.chorescore %>>Claim Chore</button>
     </div>
     <% if chore.user_id != nil %>
-      <h5>Last Completed By: <%= chore.user.name %></h5><br>
+      <h5>Last Completed By: <%= chore.user.name %></h5><br><br>
     <% end %>
   <% end %>
 <% end %>
@@ -53,7 +54,7 @@
 
 <% @chores.each do |chore| %>
   <% @points = chore.points %>
-  <span id = <% "chore-points-#{chore.id}" %>><% @points %><span>
+  <span class="mychore" id=<%= chore.id %>
   <% if chore.completion_interval > 5 && chore.completion_interval < 8  %>
     <ul class="8-day" >
       <li><%= chore.name %></li><br>
@@ -64,7 +65,7 @@
       <button class="js-claim-chore", id<%="js-claim-chore-#{chore}" %>, data-user = <%= @user.id %> data-chore = <%= chore.id %> data-points = <%= chore.points %> data-score = <%= @user.chorescore %>>Claim Chore</button>
     </div>
     <% if chore.user_id != nil %>
-      <h5>Last Completed By: <%= chore.user.name %></h5><br>
+      <h5>Last Completed By: <%= chore.user.name %></h5><br><br>
     <% end %>
   <% end %>
 <% end %>
@@ -72,6 +73,8 @@
 
 
 <% @chores.each do |chore| %>
+<% @points = chore.points %>
+<span class="mychore" id=<%= chore.id %>
   <% if chore.completion_interval > 8 %>
     <ul class="many-day" >
       <li><%= chore.name %></li><br>
@@ -82,7 +85,7 @@
       <button class="js-claim-chore", id<%="js-claim-chore-#{chore}" %>, data-user = <%= @user.id %> data-chore = <%= chore.id %> data-points = <%= chore.points %> data-score = <%= @user.chorescore %>>Claim Chore</button>
     </div>
     <% if chore.user_id != nil %>
-      <h5>Last Completed By: <%= chore.user.name %></h5><br>
+      <h5>Last Completed By: <%= chore.user.name %></h5><br><br>
     <% end %>
   <% end %>
 <% end %>

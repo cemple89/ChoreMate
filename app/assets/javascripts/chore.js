@@ -7,6 +7,7 @@ $(document).ready(function() {
     chore = self.data('chore');
     points = self.data('points');
     score = self.data('score');
+    last_completed = self.data('last_completed')
     var user_chorescore = $("#user-chorescore-" + user);
 
     var claim_chore = $.ajax({
@@ -16,15 +17,20 @@ $(document).ready(function() {
 
   })
   claim_chore.done(data => {
-    document.getElementById('chore-claim-message').innerHTML = data.message;
+      var arr = $('.mychore')
+      for(let chore in arr)
+      {
+        allchores = arr[chore]
+        if(data.chore_id == allchores.id){
+          allchores.children[6].innerHTML = "Last Completed By: " + data.completed
+        }
+      }
     })
     var chore_score = $.ajax({
       type: "PATCH",
       data: {chore_points: points},
       url: `/users/${user}`
-
     })
-
     chore_score.done(data => {
       document.getElementById(user_chorescore).innerHTML = (score + points)
     });
