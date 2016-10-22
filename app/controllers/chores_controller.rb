@@ -2,8 +2,7 @@ require 'pry'
 class ChoresController < ApplicationController
 
   def new
-    binding.pry
-    @user = User.find(1)
+    @user = User.find(2)
     @apartment = @user.apartment
     @chore = Chore.new
     @points_collection = Chore::POINTS
@@ -15,6 +14,7 @@ class ChoresController < ApplicationController
     @apartment = @user.apartment
     @chore = Chore.new(chore_params)
     @chore.apartment = @apartment
+    @chore.user = @user
     if @chore.save
       flash[:notice] = 'Chore added successfully'
       redirect_to root_path
@@ -44,12 +44,16 @@ class ChoresController < ApplicationController
     @user = User.find(1)
   end
 
+  def destroy
+    @chore = Chore.find(params[:id])
+  end
+
 
 
   protected
 
   def chore_params
-    params.require(:chore).permit(:name, :completion_interval, :apartment_id, :points, :user_id)
+    params.require(:chore).permit(:name, :completion_interval, :apartment_id, :points, :user_id, :id)
   end
 
 
