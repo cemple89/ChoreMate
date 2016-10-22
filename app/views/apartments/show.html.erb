@@ -8,6 +8,7 @@
     <li>Chorescore: <%= user.chorescore %>
   </ul><br>
 <% end %>
+
 <p id="chore-claim-message"></p>
 
 <% @chores.each do |chore| %>
@@ -18,14 +19,13 @@
       <li>Due in <%= chore.completion_interval %> days</li>
     </ul>
     <div class= "claim-chore">
-      <button class="js-claim-chore", id<%="js-claim-chore-#{chore}" %>, data-user = <%= @user.id %> data-chore = <%= chore.id %>>Claim Chore</button>
+      <button class="js-claim-chore", id<%="js-claim-chore-#{chore}" %>, data-user = <%= @user.id %> data-chore = <%= chore.id %> data-points = <%= chore.points %>>Claim Chore</button>
     </div>
     <% if chore.user_id != nil %>
       <h5>Last Completed By: <%= chore.user.name %></h5><br>
     <% end %>
   <% end %>
 <% end %>
-
 
 
 <% @chores.each do |chore| %>
