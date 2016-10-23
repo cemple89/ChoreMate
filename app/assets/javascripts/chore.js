@@ -42,4 +42,30 @@ $(document).ready(function() {
       }
     })
   });
+
+
+  $('.js-delete-chore').on('click', function(event){
+    event.preventDefault();
+    var self = $(this);
+    chore = self.data('chore');
+
+    var delete_chore = $.ajax({
+      type: "DELETE",
+      data: {chore_id: chore},
+      url: `/chores/${chore}`
+    })
+
+    delete_chore.done(data=> {
+      var arr = $('.mychore')
+      for(let chore in arr)
+      {
+        deletedchore = arr[chore]
+        if(data.chore_id == deletedchore.id){
+          deletedchore[0].innerHTML = " "
+        }
+      }
+    })
+
+
+  })
 })
