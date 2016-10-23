@@ -15,8 +15,8 @@ $(document).ready(function() {
        data: {user_id: user},
        url: `/chores/${chore}/edit`
 
-  })
-  claim_chore.done(data => {
+    })
+    claim_chore.done(data => {
       var arr = $('.mychore')
       for(let chore in arr)
       {
@@ -32,15 +32,14 @@ $(document).ready(function() {
       url: `/users/${user}`
     })
     chore_score.done(data => {
-      var arr = $('.user-information')
-      for(let score in arr)
+      var brr = $('.user-information')
+      for(let score in brr)
       {
-        currentuserscore = arr[score]
-
+        currentuserscore = brr[score]
         if(data.user_id == currentuserscore.id){
           currentuserscore.children[1].innerHTML = "Chorescore: " + data.completed
         }
       }
-    });
+    })
   });
 })

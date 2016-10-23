@@ -4,7 +4,7 @@
 
 <% @users.each do |user| %>
   <% @chorescore = user.chorescore %>
-  <div class= "user-information" id=<%=user.id %>>
+  <span class= "user-information" id=<%= user.id %>>
     <h5><%= user.name %></h5>
     <h5><span id= <%="user-chorescore-#{user.id}"%>> Chorescore: <%= @chorescore %><span></h5>
   </div><br>
@@ -14,7 +14,7 @@
 
 <% @chores.each do |chore| %>
   <% @points = chore.points %>
-  <span class="mychore" id=<%= chore.id %>>
+  <span class="mychore" id=<%= chore.id %>
   <% if chore.completion_interval < 2 %>
     <ul class="two-day" >
       <li><%= chore.name %></li><br>
