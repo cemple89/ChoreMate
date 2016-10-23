@@ -16,7 +16,7 @@
   <% @chores.each do |chore| %>
     <% @points = chore.points %>
     <span class="mychore" id=<%= chore.id %>
-      <% if chore.completion_interval > 2 %>
+      <% if chore.completion_interval > 0 %>
         <ul class="two-day" >
           <li><%= chore.name %></li><br>
           <li>Worth <%= @points %> points</li><br>

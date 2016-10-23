@@ -61,11 +61,12 @@ $(document).ready(function() {
       {
         deletedchore = arr[chore]
         if(data.chore_id == deletedchore.id){
-          deletedchore[0].innerHTML = " "
+
+          deletedchore.remove();
+
+
         }
       }
     })
-
-
   })
 })

@@ -52,6 +52,10 @@ class ChoresController < ApplicationController
   def destroy
     @chore = Chore.find(params[:id])
     @chore.destroy
+    render json: {
+      message: "You have deleted this chore!",
+      chore_id: @chore.id
+    }, status: :ok
   end
 
 
