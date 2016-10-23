@@ -32,7 +32,15 @@ $(document).ready(function() {
       url: `/users/${user}`
     })
     chore_score.done(data => {
-      document.getElementById(user_chorescore).innerHTML = (score + points)
+      var arr = $('.user-information')
+      for(let score in arr)
+      {
+        currentuserscore = arr[score]
+
+        if(data.user_id == currentuserscore.id){
+          currentuserscore.children[1].innerHTML = "Chorescore: " + data.completed
+        }
+      }
     });
   });
 })

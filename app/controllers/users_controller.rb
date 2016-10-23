@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     @user = User.find(1)
     @user.chorescore += params[:chore_points].to_i
     @user.save
+
+    render json: {
+      completed: @user.chorescore,
+      user_id: @user.id
+    }
   end
 
 
