@@ -1,6 +1,5 @@
 <h1> Chores for <%= @apartment.address %> </h1>
-
-<%= link_to 'Create a New Chore', new_chore_path %><br>
+<h3><%= Time.now.strftime('%B %d, %Y') %></h3>
 
 <% @users.each do |user| %>
   <% @chorescore = user.chorescore %>
@@ -10,20 +9,39 @@
   </div><br>
 <% end %>
 
+<%= link_to 'Create a New Chore', new_chore_path %><br>
+
 <p id="chore-claim-message"></p>
 
 <div class ="due_soon">
   <% @chores.each do |chore| %>
     <% @points = chore.points %>
+    <% @last_completed = chore.updated_at.strftime('%B %d') %>
     <% if chore.completion_interval > 0 %>
       <span class="mychore" id=<%= chore.id %>
         <li><%= chore.name %></li><br>
-        <li>Worth <%= @points %> points</li><br>
-        <li>Due in <%= chore.completion_interval %> days</li><br>
-        <li>Last Completed By: <%= chore.user.name %></li>
-        <button class="js-claim-chore", id=<%="js-claim-chore-#{chore}" %>, data-user = <%= @user.id %> data-chore = <%= chore.id %> data-points = <%= chore.points %> data-score = <%= @user.chorescore %>>Claim Chore</button><br>
-        <button class="js-delete-chore", id=<%="js-delete-chore-#{chore}" %> data-chore = <%= chore.id %>>Delete Chore</button><br><br>
+        <% if @points == 1 %>
+          <li>Worth <%= @points %> point</li><br>
+        <% else  %>
+          <li>Worth <%= @points %> points</li><br>
+        <% end %>
+        <li>Last Completed By <%= chore.user.name %> on <%= @last_completed %></li><br>
+        <li>Due On <%= chore.due_by.strftime('%B %d') %></li><br>
+        <button class="js-claim-chore", id=<%="js-claim-chore-#{chore}" %>,
+          data-user = <%= @user.id %>
+          data-chore = <%= chore.id %>
+          data-points = <%= chore.points %>
+          data-score = <%= @user.chorescore %> data-last_completed = <% Time.now %>
+          data-due_by = <% Time.now + chore.completion_interval.days %>
+          >Claim Chore
+        </button>
+        <button class="js-delete-chore", id=<%="js-delete-chore-#{chore}" %>
+          data-chore = <%= chore.id %>
+          >Delete Chore
+        </button><br><br>
       </span><br>
     <% end %>
   <% end %>
 </div>
+
+<%= link_to 'Create a New Chore', new_chore_path %><br>

@@ -15,6 +15,8 @@ class ChoresController < ApplicationController
     @chore = Chore.new(chore_params)
     @chore.apartment = @apartment
     @chore.user = @user
+    completion_interval = @chore.completion_interval.to_i
+    @chore.due_by = Time.now + completion_interval.days
     if @chore.save
       flash[:notice] = 'Chore added successfully'
       redirect_to root_path
@@ -39,7 +41,7 @@ class ChoresController < ApplicationController
     @points_collection = Chore::POINTS
     render json: {
       message: "You now own this chore!",
-      completed: @chore.user.name,
+      name: @chore.user.name,
       chore_id: @chore.id
     }, status: :ok
 
