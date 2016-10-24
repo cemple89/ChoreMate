@@ -32,10 +32,10 @@ $(document).ready(function() {
       url: `/users/${user}`
     })
     chore_score.done(data => {
-      var brr = $('.user-information')
-      for(let score in brr)
+      var arr = $('.user-information')
+      for(let score in arr)
       {
-        currentuserscore = brr[score]
+        currentuserscore = arr[score]
         if(data.user_id == currentuserscore.id){
           currentuserscore.children[1].innerHTML = "Chorescore: " + data.completed
         }
@@ -63,7 +63,6 @@ $(document).ready(function() {
         if(data.chore_id == deletedchore.id){
 
           deletedchore.remove();
-
 
         }
       }
