@@ -15,17 +15,15 @@
 <div class ="due_soon">
   <% @chores.each do |chore| %>
     <% @points = chore.points %>
-    <span class="mychore" id=<%= chore.id %>
-      <% if chore.completion_interval > 0 %>
-        <ul class="two-day" >
-          <li><%= chore.name %></li><br>
-          <li>Worth <%= @points %> points</li><br>
-          <li>Due in <%= chore.completion_interval %> days</li><br>
-          <li>Last Completed By: <%= chore.user.name %></li>
-        </ul>
+    <% if chore.completion_interval > 0 %>
+      <span class="mychore" id=<%= chore.id %>
+        <li><%= chore.name %></li><br>
+        <li>Worth <%= @points %> points</li><br>
+        <li>Due in <%= chore.completion_interval %> days</li><br>
+        <li>Last Completed By: <%= chore.user.name %></li>
         <button class="js-claim-chore", id=<%="js-claim-chore-#{chore}" %>, data-user = <%= @user.id %> data-chore = <%= chore.id %> data-points = <%= chore.points %> data-score = <%= @user.chorescore %>>Claim Chore</button><br>
-        <button class="js-delete-chore", id=<%="js-delete-chore-#{chore}" %> data-chore = <%= chore.id %>>Delete Chore</button><br>
-      <% end %>
+        <button class="js-delete-chore", id=<%="js-delete-chore-#{chore}" %> data-chore = <%= chore.id %>>Delete Chore</button><br><br>
+      </span><br>
     <% end %>
-  </span>
+  <% end %>
 </div>

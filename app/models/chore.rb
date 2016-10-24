@@ -3,7 +3,8 @@ class Chore < ActiveRecord::Base
   POINTS = [
     [1, 'light chore'],
     [2, 'medium chore'],
-    [3, 'heavy chore']
+    [3, 'heavy chore'],
+    [4, 'intense chore']
            ]
 
   belongs_to :apartment
