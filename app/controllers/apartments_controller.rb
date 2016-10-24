@@ -7,7 +7,7 @@ class ApartmentsController < ApplicationController
   end
 
   def show
-    @user = User.find(1)
+    @user = current_user
     @apartment = @user.apartment
     @chores = @apartment.chores.order('completion_interval ASC')
     @users = @apartment.users
