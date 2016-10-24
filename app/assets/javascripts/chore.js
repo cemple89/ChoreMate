@@ -22,7 +22,8 @@ $(document).ready(function() {
       {
         allchores = arr[chore]
         if(data.chore_id == allchores.id){
-          allchores.children[6].innerHTML = "Last Completed By: " + data.completed
+          allchores.children[5].innerHTML = "Last Completed By: " + data.completed
+          allchores.children[6].innerHTML = "Chore Claimed"
         }
       }
     })
