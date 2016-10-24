@@ -6,6 +6,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'materialize-sass'
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
 
 group :development, :test do
   gem 'listen'
