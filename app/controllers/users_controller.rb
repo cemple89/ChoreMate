@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
 
   def update
-    @user = User.current_user
+    @user = current_user
     @user.chorescore += params[:chore_points].to_i
     @user.save
 
