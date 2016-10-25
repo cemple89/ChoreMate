@@ -2,7 +2,7 @@ require 'pry'
 class ChoresController < ApplicationController
 
   def new
-    @user = current_user
+    @user = User.find(3)
     @apartment = @user.apartment
     @chore = Chore.new
     @points_collection = Chore::POINTS
@@ -10,14 +10,15 @@ class ChoresController < ApplicationController
 
   def create
     @points_collection = Chore::POINTS
-    @user = current_user
+    @user = User.find(3)
     @apartment = @user.apartment
     @chore = Chore.new(chore_params)
     @chore.apartment = @apartment
     @chore.user = @user
-    completion_interval = @chore.completion_interval.to_i
-    @chore.due_by = Time.now + completion_interval.days
-    @chore.last_completed = Time.now
+    completion_interval = @chore.completion_interval
+    currenttime = Time.now
+    @chore.last_completed = currenttime
+    @chore.due_by = currenttime + completion_interval.days
     @chore.save
     if @chore.save
       flash[:notice] = 'Chore added successfully'
@@ -29,14 +30,14 @@ class ChoresController < ApplicationController
   end
 
   def index
-    @user = current_user
+    @user = User.find(3)
     @apartment = @user.apartment
     @chores = Chore.find_by(apartment: @apartment)
     @users = @apartment.users
   end
 
   def edit
-    @user = current_user
+    @user = User.find(3)
     @apartment = @user.apartment
     @chore = Chore.find(params[:id])
     @chore.update_attributes(user_id: params[:user_id], last_completed: params[:last_completed], due_by: params[:due_by])
@@ -46,15 +47,15 @@ class ChoresController < ApplicationController
       message: "You now own this chore!",
       name: @chore.user.name,
       chore_id: @chore.id,
-      last_completed: Time.now.strftime('%e %b %Y %H:%M:%S%p'),
-      due_by: @new_due_by.strftime('%e %b %Y %H:%M:%S%p')
+      last_completed: Time.now.strftime('%B %e'),
+      due_by: @new_due_by.strftime('%B %e')
 
     }, status: :ok
 
   end
 
   def update
-    @user = current_user
+    @user = User.find(3)
   end
 
   def destroy

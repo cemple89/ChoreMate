@@ -1,14 +1,8 @@
 class UsersController < ApplicationController
 
-  def create
-    current_user = Usersfb.from_omniauth(request.env["omniauth.auth"])
-    session[:user_id] = user.id
-    redirect_to root_url
-  end
-
 
   def update
-    @user = current_user
+    @user = User.find(3)
     @user.chorescore += params[:chore_points].to_i
     @user.save
 
