@@ -1,5 +1,5 @@
 <h1> Chores for <%= @apartment.address %> </h1>
-<h3><%= Time.now.strftime('%B %d, %Y') %></h3>
+<h3><%= Time.now.strftime('%e %b %Y %H:%M:%S%p') %></h3>
 
 <% @users.each do |user| %>
   <% @chorescore = user.chorescore %>
@@ -23,8 +23,8 @@
         <% else  %>
           <li>Worth <%= chore.points %> points</li><br>
         <% end %>
-        <li>Last Completed By <%= chore.user.name %> on <%= chore.last_completed.strftime('%a %b %e') %></li><br>
-        <li>Due On <%= chore.due_by.strftime('%a %b %e') %></li><br>
+        <li>Last Completed By <%= chore.user.name %> on <%= chore.last_completed.strftime('%e %b %Y %H:%M:%S%p') %></li><br>
+        <li>Due On <%= chore.due_by.strftime('%e %b %Y %H:%M:%S%p') %></li><br>
         <button class="js-claim-chore", id=<%="js-claim-chore-#{chore}" %>
           data-user = <%= @user.id %>
           data-chore = <%= chore.id %>

@@ -12,18 +12,21 @@ $(document).ready(function() {
 
     var claim_chore = $.ajax({
        type: "GET",
-       data: {user_id: user},
+       data: {user_id: user,
+              last_completed: last_completed,
+              due_by: due_by
+             },
        url: `/chores/${chore}/edit`
 
     })
-
     claim_chore.done(data => {
       var arr = $('.mychore')
       for(let chore in arr)
       {
-        
+
         allchores = arr[chore]
         if(data.chore_id == allchores.id){
+          ;
           allchores.children[3].innerHTML = "Last Completed By " + data.name + " on " + data.last_completed
           allchores.children[5].innerHTML = "Due On " + data.due_by
           allchores.children[7].innerHTML = "Chore Claimed"
