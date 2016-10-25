@@ -40,6 +40,7 @@ class ChoresController < ApplicationController
     @user = User.find(3)
     @apartment = @user.apartment
     @chore = Chore.find(params[:id])
+    binding.pry
     @chore.update_attributes(user_id: params[:user_id], last_completed: params[:last_completed], due_by: params[:due_by])
     @points_collection = Chore::POINTS
     @new_due_by = @chore.due_by
@@ -47,8 +48,8 @@ class ChoresController < ApplicationController
       message: "You now own this chore!",
       name: @chore.user.name,
       chore_id: @chore.id,
-      last_completed: Time.now.strftime('%B %e'),
-      due_by: @new_due_by.strftime('%B %e')
+      last_completed: Time.now.strftime('%b %e, %l:%M %p'),
+      due_by: @new_due_by.strftime('%b %e, %l:%M %p')
 
     }, status: :ok
 
@@ -72,7 +73,7 @@ class ChoresController < ApplicationController
   protected
 
   def chore_params
-    params.require(:chore).permit(:name, :completion_interval, :apartment_id, :points, :user_id, :id)
+    params.require(:chore).permit(:name, :completion_interval, :apartment_id, :points, :due_by, :completed_by, :user_id)
   end
 
 
