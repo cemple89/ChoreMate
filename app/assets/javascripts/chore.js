@@ -8,13 +8,13 @@ $(document).ready(function() {
     points = self.data('points');
     score = self.data('score');
     last_completed = self.data('last_completed');
-    due_by = self.data('due_by');
+    completion_interval = self.data('completion_interval');
 
     var claim_chore = $.ajax({
        type: "GET",
        data: {user_id: user,
               last_completed: last_completed,
-              due_by: due_by
+              completion_interval: completion_interval
              },
        url: `/chores/${chore}/edit`
 

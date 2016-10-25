@@ -40,16 +40,18 @@ class ChoresController < ApplicationController
     @user = User.find(3)
     @apartment = @user.apartment
     @chore = Chore.find(params[:id])
-    binding.pry
-    @chore.update_attributes(user_id: params[:user_id], last_completed: params[:last_completed], due_by: params[:due_by])
+    @chore.update_attributes(user_id: params[:user_id])
+    @chore.last_completed = Time.now
+    @chore.due_by = @chore.last_completed + params[:completion_interval].to_i.days
     @points_collection = Chore::POINTS
     @new_due_by = @chore.due_by
+    @chore.save
     render json: {
       message: "You now own this chore!",
       name: @chore.user.name,
       chore_id: @chore.id,
-      last_completed: Time.now.strftime('%b %e, %l:%M %p'),
-      due_by: @new_due_by.strftime('%b %e, %l:%M %p')
+      last_completed: Time.now.localtime.strftime('%b %e, %l:%M %p'),
+      due_by: @new_due_by.localtime.strftime('%b %e, %l:%M %p')
 
     }, status: :ok
 

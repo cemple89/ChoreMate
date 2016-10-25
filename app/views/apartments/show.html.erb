@@ -18,20 +18,20 @@
     <% if chore.completion_interval > 0 %>
       <span class="mychore" id=<%= chore.id %>
         <li><%= chore.name %></li><br>
-        <% if @points == 1 %>
+        <% if chore.points == 1 %>
           <li>Worth <%= chore.points %> point</li><br>
         <% else  %>
           <li>Worth <%= chore.points %> points</li><br>
         <% end %>
-        <li>Last Completed By <%= chore.user.name %> on <%= chore.last_completed.strftime('%b %e, %l:%M %p') %></li><br>
-        <li>Due on <%= chore.due_by.strftime('%b %e, %l:%M %p') %></li><br>
+        <li>Last Completed By <%= chore.user.name %> on <%= chore.last_completed.localtime.strftime('%b %e, %l:%M %p') %></li><br>
+        <li>Due on <%= chore.due_by.localtime.strftime('%b %e, %l:%M %p') %></li><br>
         <button class="js-claim-chore", id=<%="js-claim-chore-#{chore}" %>
           data-user = <%= @user.id %>
           data-chore = <%= chore.id %>
           data-points = <%= chore.points %>
           data-score = <%= @user.chorescore %>
           data-last_completed = <%= Time.now %>
-          data-due_by = <%= Time.now + chore.completion_interval.days %>
+          data-completion_interval = <%= chore.completion_interval %>
           >Claim Chore
         </button>
         <button class="js-delete-chore", id=<%="js-delete-chore-#{chore}" %>
