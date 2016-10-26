@@ -2,45 +2,47 @@
 <h3><%= Time.now.strftime('%B %e %Y') %></h3>
 
 <% @users.each do |user| %>
-  <% @chorescore = user.chorescore %>
+<% @chorescore = user.chorescore %>
+<div class="user">
   <span class= "user-information" id=<%= user.id %>>
     <h5><%= user.name %></h5>
     <h5><span id= <%="user-chorescore-#{user.id}"%>> Chorescore: <%= @chorescore %><span></h5>
-  </div><br>
+    </span><br>
+  </div>
 <% end %>
 
 <%= link_to 'Create a New Chore', new_chore_path %><br>
 
 <p id="chore-claim-message"></p>
 
+<% @chores.each do |chore| %>
+<% if chore.completion_interval > 0 %>
 <div class ="due_soon">
-  <% @chores.each do |chore| %>
-    <% if chore.completion_interval > 0 %>
-      <span class="mychore" id=<%= chore.id %>
-        <li><%= chore.name %></li><br>
-        <% if chore.points == 1 %>
-          <li>Worth <%= chore.points %> point</li><br>
-        <% else  %>
-          <li>Worth <%= chore.points %> points</li><br>
-        <% end %>
-        <li>Last Completed By <%= chore.user.name %> on <%= chore.last_completed.localtime.strftime('%b %e, %l:%M %p') %></li><br>
-        <li>Due on <%= chore.due_by.localtime.strftime('%b %e, %l:%M %p') %></li><br>
-        <button class="js-claim-chore", id=<%="js-claim-chore-#{chore}" %>
-          data-user = <%= @user.id %>
-          data-chore = <%= chore.id %>
-          data-points = <%= chore.points %>
-          data-score = <%= @user.chorescore %>
-          data-last_completed = <%= Time.now %>
-          data-completion_interval = <%= chore.completion_interval %>
-          >Claim Chore
-        </button>
-        <button class="js-delete-chore", id=<%="js-delete-chore-#{chore}" %>
-          data-chore = <%= chore.id %>
-          >Delete Chore
-        </button><br><br>
-      </span><br>
-    <% end %>
-  <% end %>
+  <span class="mychore" id=<%= chore.id %>
+    <li class="chorename"><%= chore.name %></li><br>
+    <div class="chorestats">
+      <% if chore.points == 1 %>
+      <li>Worth <%= chore.points %> point</li><br>
+      <% else  %>
+      <li>Worth <%= chore.points %> points</li><br>
+      <% end %>
+      <li>Last Completed By <%= chore.user.name %> on <%= chore.last_completed.localtime.strftime('%b %e, %l:%M %p') %></li><br>
+      <li>Due on <%= chore.due_by.localtime.strftime('%b %e, %l:%M %p') %></li><br>
+    </div>
+    <button class="js-claim-chore", id=<%="js-claim-chore-#{chore}" %>
+      data-user = <%= @user.id %>
+      data-chore = <%= chore.id %>
+      data-points = <%= chore.points %>
+      data-score = <%= @user.chorescore %>
+      data-last_completed = <%= Time.now %>
+      data-completion_interval = <%= chore.completion_interval %>
+      >Claim Chore
+    </button>
+    <button class="js-delete-chore", id=<%="js-delete-chore-#{chore}" %>
+      data-chore = <%= chore.id %>
+      >Delete Chore
+    </button><br><br>
+  </span><br>
 </div>
-
-<%= link_to 'Create a New Chore', new_chore_path %><br>
+<% end %>
+<% end %>

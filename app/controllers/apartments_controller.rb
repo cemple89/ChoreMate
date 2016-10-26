@@ -12,6 +12,7 @@ class ApartmentsController < ApplicationController
     @apartment = @user.apartment
     @chores = @apartment.chores.order('due_by ASC')
     @users = @apartment.users
+    
   end
 
 

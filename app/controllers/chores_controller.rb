@@ -15,7 +15,7 @@ class ChoresController < ApplicationController
     @chore = Chore.new(chore_params)
     @chore.apartment = @apartment
     @chore.user = @user
-    completion_interval = @chore.completion_interval
+    completion_interval = @chore.completion_interval.to_i
     currenttime = Time.now
     @chore.last_completed = currenttime
     @chore.due_by = currenttime + completion_interval.days
