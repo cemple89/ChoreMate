@@ -26,10 +26,11 @@ $(document).ready(function() {
 
         allchores = arr[chore]
         if(data.chore_id == allchores.id){
-          ;
-          allchores.children[3].innerHTML = "Last Completed By " + data.name + " on " + data.last_completed
-          allchores.children[5].innerHTML = "Due On " + data.due_by
-          allchores.children[7].innerHTML = "Chore Claimed"
+          debugger;
+
+          allchores.children[1].children[2].innerHTML = "Last Completed By " + data.name + " on " + data.last_completed
+          allchores.children[1].children[4].innerHTML = "Due On " + data.due_by
+          allchores.children[2].innerHTML = "Chore Claimed"
         }
       }
     })
