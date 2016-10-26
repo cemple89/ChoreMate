@@ -1,0 +1,27 @@
+<div class="container">
+  <h1> Create Chore for <%= @apartment.address %> </h1>
+</div>
+
+<div class="container">
+  <%= form_for(@chore) do |c| %>
+  <div class="field">
+    <%= c.label :name, "Name" %><br>
+    <%= c.text_field :name %>
+  </div>
+  <div class="field">
+    <%= c.label :completion_interval, "Days Between Completion" %><br>
+    <%= c.text_field :completion_interval %>
+  </div>
+  <div class="field">
+    <%= c.label :points, "Chore Weight" %><br>
+    <%= c.collection_radio_buttons :points, @points_collection, :first, :last %>
+  </div>
+  <div class="actions">
+    <%= c.submit "Add Chore" %>
+  </div>
+  <% end  %>
+</div>
+
+<div class="container">
+  <%= link_to 'Back', root_path %>
+</div>

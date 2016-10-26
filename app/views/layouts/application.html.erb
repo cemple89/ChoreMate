@@ -1,14 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8" />
     <title>ChoreMate</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <link rel="stylesheet" href="app/assets/stylesheets/application.scss" >
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
+    <div class="top-bar row">
+        <div class="name">
+            <h1>ChoreMate</h1>
+        </div>
+      </div>
+
+    <% flash.each do |key, value| %>
+      <div class="flash-container">
+        <%= value %>
+      </div>
+    <% end %>
+
+
     <%= yield %>
+
+
+
   </body>
 </html>

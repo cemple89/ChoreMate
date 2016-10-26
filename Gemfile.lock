@@ -40,10 +40,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (7.1.4)
-    babel-source (5.8.35)
-    babel-transpiler (0.7.0)
-      babel-source (>= 4.0, < 6)
-      execjs (~> 2.0)
     builder (3.2.2)
     capybara (2.10.1)
       addressable
@@ -53,6 +49,13 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     coderay (1.1.1)
+    coffee-rails (4.2.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.2.x)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
     coveralls (0.8.15)
       json (>= 1.8, < 3)
@@ -60,25 +63,35 @@ GEM
       term-ansicolor (~> 1.3)
       thor (~> 0.19.1)
       tins (>= 1.6.0, < 2)
+    database_cleaner (1.5.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    dotenv (2.1.1)
+    dotenv-rails (2.1.1)
+      dotenv (= 2.1.1)
+      railties (>= 4.0, < 5.1)
     erubis (2.7.0)
     execjs (2.7.0)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
+    factory_girl_rails (4.7.0)
+      factory_girl (~> 4.7.0)
+      railties (>= 3.0.0)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.14)
-    foundation-rails (6.2.3.0)
-      railties (>= 3.1.0)
-      sass (>= 3.3.0, < 3.5)
-      sprockets-es6 (>= 0.9.0)
+    figaro (1.1.1)
+      thor (~> 0.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    hashie (3.4.6)
     i18n (0.7.0)
     jquery-rails (4.2.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.0.2)
+    jwt (1.5.6)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.1.5)
@@ -89,15 +102,34 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    materialize-sass (0.97.7)
+      sass (~> 3.3)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
+    multi_json (1.12.1)
+    multi_xml (0.5.5)
+    multipart-post (2.0.0)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
+    oauth2 (1.2.0)
+      faraday (>= 0.8, < 0.10)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.3.1)
+      hashie (>= 1.2, < 4)
+      rack (>= 1.0, < 3)
+    omniauth-facebook (4.0.0)
+      omniauth-oauth2 (~> 1.2)
+    omniauth-oauth2 (1.4.0)
+      oauth2 (~> 1.0)
+      omniauth (~> 1.2)
     pg (0.19.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -165,8 +197,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    shoulda-matchers (2.8.0)
-      activesupport (>= 3.0.0)
+    shoulda-matchers (3.1.1)
+      activesupport (>= 4.0.0)
     simplecov (0.12.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -176,10 +208,6 @@ GEM
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-es6 (0.9.1)
-      babel-source (>= 5.8.11)
-      babel-transpiler
-      sprockets (>= 3.0.0)
     sprockets-rails (3.2.0)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
@@ -206,12 +234,19 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  coffee-rails
   coveralls
-  factory_girl
-  foundation-rails
+  database_cleaner
+  dotenv
+  dotenv-rails
+  factory_girl_rails
+  figaro
   jquery-rails
   launchy
   listen
+  materialize-sass
+  omniauth
+  omniauth-facebook
   pg (~> 0.15)
   pry-rails
   rails (~> 5)
