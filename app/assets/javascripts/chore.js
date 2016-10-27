@@ -26,7 +26,6 @@ $(document).ready(function() {
 
         allchores = arr[chore]
         if(data.chore_id == allchores.id){
-          debugger;
 
           allchores.children[1].children[2].innerHTML = "Last Completed By " + data.name + " on " + data.last_completed
           allchores.children[1].children[4].innerHTML = "Due On " + data.due_by
@@ -45,7 +44,7 @@ $(document).ready(function() {
       {
         currentuserscore = arr[score]
         if(data.user_id == currentuserscore.id){
-          currentuserscore.children[1].innerHTML = "Chorescore: " + data.completed
+          currentuserscore.children[1].innerHTML = data.completed
         }
       }
     })
@@ -69,7 +68,7 @@ $(document).ready(function() {
       {
         deletedchore = arr[chore]
         if(data.chore_id == deletedchore.id){
-          deletedchore.remove();
+          deletedchore.parentElement.remove();
         }
       }
     })

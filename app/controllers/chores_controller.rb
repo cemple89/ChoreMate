@@ -50,8 +50,8 @@ class ChoresController < ApplicationController
       message: "You now own this chore!",
       name: @chore.user.name,
       chore_id: @chore.id,
-      last_completed: Time.now.localtime.strftime('%b %e, %l:%M %p'),
-      due_by: @new_due_by.localtime.strftime('%b %e, %l:%M %p')
+      last_completed: Time.now.localtime.strftime('%b %e'),
+      due_by: @new_due_by.localtime.strftime('%b %e')
 
     }, status: :ok
 

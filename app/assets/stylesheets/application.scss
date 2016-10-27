@@ -74,7 +74,7 @@ h5 {
   margin-top: 100px;
 }
 
-div.due_soon {
+div.due_two_day {
   display: inline-block;
   font-size: 20px;
   margin: auto;
@@ -92,22 +92,80 @@ div.due_soon {
   box-shadow: 0 -1px 5px 2px black;
 
 }
-div.due_less_soon {
-  font-size: 15px;
+
+div.two_four_days {
+  display: inline-block;
+  font-size: 20px;
   margin: auto;
+  margin-right: 10px;
   margin-bottom: 10px;
-  border: 2px  black;
-  text-align: center;
+  border: 2px black;
   padding: 10px;
+  text-align: center;
+  list-style-type: none;
   padding-top: 10px;
   height: 350px;
-  width: 350px;
   vertical-align: text-bottom;
   border-radius: 10px;
-  background-color: #C1C5C8;
+  background-color: #FF7A1B;
   box-shadow: 0 -1px 5px 2px black;
-
 }
+
+div.four_six_days {
+  display: inline-block;
+  font-size: 20px;
+  margin: auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 2px black;
+  padding: 10px;
+  text-align: center;
+  list-style-type: none;
+  padding-top: 10px;
+  height: 350px;
+  vertical-align: text-bottom;
+  border-radius: 10px;
+  background-color: #FFE631;
+  box-shadow: 0 -1px 5px 2px black;
+}
+
+div.seven_twelve_days {
+  display: inline-block;
+  font-size: 20px;
+  margin: auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 2px black;
+  padding: 10px;
+  text-align: center;
+  list-style-type: none;
+  padding-top: 10px;
+  height: 350px;
+  vertical-align: text-bottom;
+  border-radius: 10px;
+  background-color: #5AFE3D;
+  box-shadow: 0 -1px 5px 2px black;
+}
+
+div.greater_twelve {
+  display: inline-block;
+  font-size: 20px;
+  margin: auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 2px black;
+  padding: 10px;
+  text-align: center;
+  list-style-type: none;
+  padding-top: 10px;
+  height: 350px;
+  vertical-align: text-bottom;
+  border-radius: 10px;
+  background-color: #00CCFF;
+  box-shadow: 0 -1px 5px 2px black;
+}
+
+
 
 button.js-claim-chore {
   display: inline;
@@ -198,4 +256,8 @@ label {
 
   margin-top: 20px
 
+}
+
+.message {
+  background-color: #464952
 }
