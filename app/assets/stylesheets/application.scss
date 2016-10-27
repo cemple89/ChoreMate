@@ -11,26 +11,43 @@
   margin-bottom: 20px;
 }
 
-.name {
-  color: #395F83;
-  font-family: 'Arial';
-  font-size: 100px;
-  letter-spacing: 2px;
-  padding-left: 50px;
-  text-shadow: 1px 1px 1px black;
+.caps {
+  text-transform: capitalize;
 }
 
+.name {
+  color: #FF7A1B;
+  font-family: 'Arial';
+  font-size: 100px;
+  padding-left: 50px;
+  text-align: center;
+}
+
+div.all-users {
+  text-align: center;
+  vertical-align: center;
+}
 
 div.user {
-  background: grey;
+  background: #0C1A47;
   display: inline-block;
-  vertical-align:text-top;
-  width: 32%;
+  vertical-align:center;
+  width: 20%;
+  text-align: center;
   color: white;
-  margin-left: 5px;
-  margin-right: 5px;
-  border-radius: 50px;
+  width: 150px;
+  height: 150px;
+  margin-left: 40px;
+  margin-right: 50px;
+  border-radius: 50%;
   border: 2px solid #303032;
+
+user-information {
+  text-align: center;
+  margin: auto;
+  vertical-align: top;
+}
+
 
 
 
@@ -38,22 +55,42 @@ div.user {
 }
 
 h5 {
-  margin-left: 25%;
-  margin-top: 20px;
+  margin: auto;
+  text-align: center;
+  margin-top: 100px;
 }
 
 div.due_soon {
-  width: 66%;
+  display: inline-block;
   font-size: 20px;
   margin: auto;
   margin-bottom: 10px;
-  border: 2px solid black;
+  border: 2px black;
   padding: 10px;
+  text-align: center;
+  list-style-type: none;
   padding-top: 10px;
   height: 350px;
   vertical-align: text-bottom;
   border-radius: 10px;
-  background-color: white;
+  background-color: red;
+  box-shadow: 0 -1px 5px 2px black;
+
+}
+div.due_less_soon {
+  font-size: 15px;
+  margin: auto;
+  margin-bottom: 10px;
+  border: 2px  black;
+  text-align: center;
+  padding: 10px;
+  padding-top: 10px;
+  height: 350px;
+  width: 350px;
+  vertical-align: text-bottom;
+  border-radius: 10px;
+  background-color: #C1C5C8;
+  box-shadow: 0 -1px 5px 2px black;
 
 }
 
@@ -69,19 +106,28 @@ button.js-delete-chore {
 
 a {
   display: inline-block;
-  font-size: 20px;
-  margin-left: 50px;
+  font-size: 40px;
+  margin-left: 0px;
   margin-top: 10px;
-  align-content: center;
+  text-align: center;
+  font-weight: bold;
+  color: #FF6600;
 }
 
 h3 {
-  color: #303032;
+  color: #00CCFF;
   margin-left: 20px;
+  text-align: center;
+  font-weight: bold;
+
 }
 
 h1 {
-  margin-left: 10px;
+  margin-left: 5px;
+  font-size: 150px;
+  margin-top: 20px;
+  font-weight: bold;
+
 
 }
 
@@ -90,11 +136,21 @@ h1 {
 }
 
 div.chorestats {
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 20px;
+  padding-bottom: 0px;
 }
 
 body {
   background-color: #395F83;
+}
+
+.createchore {
+  text-align: center;
+  text-decoration-style: solid;
+  text-transform: uppercase;
+  margin-top: 20px;
+  color: #FF6600;
+  text-decoration-color: #FF6600;
 }
