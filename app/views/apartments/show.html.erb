@@ -30,7 +30,7 @@
           <% else  %>
             <li><%= chore.points %> points</li><br>
           <% end %>
-          <li>Last Completed <%= chore.user.name %> on <%= chore.last_completed.localtime.strftime('%b %e') %></li><br>
+          <li>Completed By <%= chore.user.name %> on <%= chore.last_completed.localtime.strftime('%b %e') %></li><br>
           <li>Due <%= chore.due_by.localtime.strftime('%b %e') %></li><br>
         </div>
         <button class="js-claim-chore", id=<%="js-claim-chore-#{chore}" %>
