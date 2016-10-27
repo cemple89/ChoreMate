@@ -25,6 +25,8 @@
 
 body {
   text-align: center;
+  background-color: #395F83;
+
 }
 
 div.all-users {
@@ -61,7 +63,9 @@ user-information {
 
 
 
-
+.create_chore {
+  font-size: 20px;
+}
 
 
 h5 {
@@ -74,6 +78,7 @@ div.due_soon {
   display: inline-block;
   font-size: 20px;
   margin: auto;
+  margin-right: 10px;
   margin-bottom: 10px;
   border: 2px black;
   padding: 10px;
@@ -129,6 +134,8 @@ h3 {
   margin-left: 20px;
   text-align: center;
   font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
 }
 
@@ -156,9 +163,6 @@ div.chorestats {
   padding-bottom: 0px;
 }
 
-body {
-  background-color: #395F83;
-}
 
 .createchore {
   text-align: center;
@@ -167,4 +171,31 @@ body {
   margin-top: 20px;
   color: #FF6600;
   text-decoration-color: #FF6600;
+}
+
+.new_chore_form {
+  background: #0C1A47;
+  width: 66%;
+  text-align: center;
+  margin: auto;
+  height: 500px;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 20px;
+
+}
+
+input {
+  margin-top: 50px;
+}
+
+div.field {
+  margin-top: 20px;
+
+}
+
+label {
+
+  margin-top: 20px
+
 }

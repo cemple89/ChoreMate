@@ -1,8 +1,6 @@
-<div class="container">
-  <h1> Create Chore for <%= @apartment.address %> </h1>
-</div>
+  <h3> Create Chore for <%= @apartment.address %> </h3>
 
-<div class="container">
+<div class="new_chore_form">
   <%= form_for(@chore) do |c| %>
   <div class="field">
     <%= c.label :name, "Name" %><br>
@@ -22,6 +20,6 @@
   <% end  %>
 </div>
 
-<div class="container">
+<div class="back">
   <%= link_to 'Back', root_path %>
 </div>
