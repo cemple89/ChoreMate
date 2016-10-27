@@ -16,7 +16,7 @@
 }
 
 .name {
-  color: #FF7A1B;
+  color: #505050;
   font-family: 'Arial';
   font-size: 100px;
   padding-left: 50px;
@@ -33,8 +33,7 @@ div.all-users {
 
   display: inline-block;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+
 }
 
 div.user {
@@ -58,9 +57,12 @@ user-information {
   text-align: center;
   margin: auto;
   vertical-align: top;
+  position: fixed;
 }
 
-
+.mychore {
+  font-weight: bold;
+}
 
 
 .create_chore {
@@ -74,18 +76,29 @@ h5 {
   margin-top: 100px;
 }
 
+.chorestats {
+  text-align: center;
+  margin-left: 0px;
+  padding-left: 0px;
+  margin-right: 20px;
+}
+
+
+
 div.due_two_day {
   display: inline-block;
   font-size: 20px;
   margin: auto;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   border: 2px black;
   padding: 10px;
   text-align: center;
   list-style-type: none;
   padding-top: 10px;
-  height: 350px;
+  height: 310px;
   vertical-align: text-bottom;
   border-radius: 10px;
   background-color: red;
@@ -97,14 +110,16 @@ div.two_four_days {
   display: inline-block;
   font-size: 20px;
   margin: auto;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   border: 2px black;
   padding: 10px;
   text-align: center;
   list-style-type: none;
   padding-top: 10px;
-  height: 350px;
+  height: 310px;
   vertical-align: text-bottom;
   border-radius: 10px;
   background-color: #FF7A1B;
@@ -115,14 +130,16 @@ div.four_six_days {
   display: inline-block;
   font-size: 20px;
   margin: auto;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   border: 2px black;
   padding: 10px;
   text-align: center;
   list-style-type: none;
   padding-top: 10px;
-  height: 350px;
+  height: 310px;
   vertical-align: text-bottom;
   border-radius: 10px;
   background-color: #FFE631;
@@ -133,14 +150,16 @@ div.seven_twelve_days {
   display: inline-block;
   font-size: 20px;
   margin: auto;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   border: 2px black;
   padding: 10px;
   text-align: center;
   list-style-type: none;
   padding-top: 10px;
-  height: 350px;
+  height: 310px;
   vertical-align: text-bottom;
   border-radius: 10px;
   background-color: #5AFE3D;
@@ -151,14 +170,16 @@ div.greater_twelve {
   display: inline-block;
   font-size: 20px;
   margin: auto;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   border: 2px black;
   padding: 10px;
   text-align: center;
   list-style-type: none;
   padding-top: 10px;
-  height: 350px;
+  height: 310px;
   vertical-align: text-bottom;
   border-radius: 10px;
   background-color: #00CCFF;
@@ -177,6 +198,14 @@ button.js-delete-chore {
   display: inline;
 }
 
+button.js-claim-chore:active {
+  background: #395F83;
+}
+
+button.js-delete-chore:active {
+  background: #395F83;
+}
+
 a {
   display: inline-block;
   font-size: 40px;
@@ -184,7 +213,7 @@ a {
   margin-top: 10px;
   text-align: center;
   font-weight: bold;
-  color: #FF6600;
+  color: white;
 }
 
 h3 {
@@ -210,9 +239,7 @@ h1 {
 
 }
 
-.mychore {
-  text-align:justify;
-}
+
 
 div.chorestats {
   margin-top: 20px;
@@ -229,6 +256,7 @@ div.chorestats {
   margin-top: 20px;
   color: #FF6600;
   text-decoration-color: #FF6600;
+  font-size: 20px;
 }
 
 .new_chore_form {
@@ -236,15 +264,32 @@ div.chorestats {
   width: 66%;
   text-align: center;
   margin: auto;
-  height: 500px;
+  height: 400px;
   padding: 15px;
   border-radius: 10px;
   font-size: 20px;
+  box-shadow: 0 -1px 3px 2px black;
+
+
+}
+
+.new_chore_form, select, textarea {
+  color: white;
+  font-size: 16px;
+}
+
+.new_chore_form, select, label {
+
+  font-size: 16px;
+}
+
+.addchore, select, textarea {
+  color: black;
 
 }
 
 input {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 div.field {
@@ -258,6 +303,14 @@ label {
 
 }
 
-.message {
-  background-color: #464952
+div.message {
+  background: #464952;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+
+a {
+  background: 505050;
 }

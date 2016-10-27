@@ -1,4 +1,6 @@
+<div class="CreateTitle">
   <h3> Create Chore for <%= @apartment.address %> </h3>
+</div>
 
 <div class="new_chore_form">
   <%= form_for(@chore) do |c| %>
@@ -14,8 +16,10 @@
     <%= c.label :points, "Chore Weight" %><br>
     <%= c.collection_radio_buttons :points, @points_collection, :first, :last %>
   </div>
-  <div class="actions">
-    <%= c.submit "Add Chore" %>
+  <div class="addchore">
+    <div class="actions">
+      <%= c.submit "Add Chore" %>
+    </div>
   </div>
   <% end  %>
 </div>

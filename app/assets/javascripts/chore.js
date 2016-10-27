@@ -27,8 +27,8 @@ $(document).ready(function() {
         allchores = arr[chore]
         if(data.chore_id == allchores.id){
 
-          allchores.children[1].children[2].innerHTML = "Last Completed By " + data.name + " on " + data.last_completed
-          allchores.children[1].children[4].innerHTML = "Due On " + data.due_by
+          allchores.children[1].children[2].innerHTML = "Completed By " + data.name + " on " + data.last_completed
+          allchores.children[1].children[4].innerHTML = "Due " + data.due_by
           allchores.children[2].innerHTML = "Chore Claimed"
         }
       }

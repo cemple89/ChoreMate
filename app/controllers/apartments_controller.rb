@@ -8,11 +8,11 @@ class ApartmentsController < ApplicationController
   end
 
   def show
-    @user = User.find(3)
+    @user = User.find(4)
     @apartment = @user.apartment
     @chores = @apartment.chores.order('due_by ASC')
     @users = @apartment.users
-    
+
   end
 
 
