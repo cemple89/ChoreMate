@@ -1,10 +1,11 @@
 class ApartmentsController < ApplicationController
 
   def new
-
+    @state_collection = Location::STATES
   end
 
   def create
+    @state_collection = Location::STATES
   end
 
   def show
