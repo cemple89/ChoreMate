@@ -221,7 +221,6 @@ DEPENDENCIES
   coffee-rails
   coveralls
   database_cleaner
-  dotenv
   dotenv-rails
   factory_girl_rails
   figaro

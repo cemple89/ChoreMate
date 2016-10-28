@@ -13,7 +13,6 @@ gem 'materialize-sass'
 gem 'omniauth'
 gem 'figaro'
 gem 'puma'
-gem 'dotenv'
 gem 'dotenv-rails'
 
 group :development, :test do
