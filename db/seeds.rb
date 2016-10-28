@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Apartment.create(address: "Test Address", city: "Boston", state: "MA", zip_code: "02139")
 User.create(name: "Charlie", apartment_id: 1, chorescore: 8)
 User.create(name: "Guest User", apartment_id: 1, chorescore: 10)
 User.create(name: "Tom", apartment_id: 1, chorescore: 10)
-Apartment.create(address: "Test Address", city: "Boston", state: "MA", zip_code: "02139")
