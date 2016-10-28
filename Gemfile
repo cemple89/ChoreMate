@@ -13,7 +13,6 @@ gem 'materialize-sass'
 gem 'omniauth'
 gem 'figaro'
 gem 'puma'
-gem 'omniauth-facebook'
 gem 'dotenv'
 gem 'dotenv-rails'
 
