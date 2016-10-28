@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.name = auth.info.name
       user.chorescore = 0
-      user.apartment_id = 1
+      user.apartment_id = nil
       user.save!
     end
   end
@@ -16,6 +16,6 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :chorescore, numericality: { only_integer: true }
 
+  belongs_to :apartment, optional: true
   has_many :chores
-  belongs_to :apartment
 end

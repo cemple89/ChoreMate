@@ -18,13 +18,14 @@ class UsersController < ApplicationController
       redirect_to apartment_path(@apartment)
     else
       flash[:notice] = @user.errors.full_messages.join(", ")
-    end 
+    end
   end
 
 
   def update
-    @user = User.current_user
+    @user = current_user
     @user.chorescore += params[:chore_points].to_i
+
     @user.save
 
     render json: {

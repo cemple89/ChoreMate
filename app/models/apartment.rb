@@ -24,7 +24,7 @@ class Apartment < ActiveRecord::Base
   'Maryland',
   'Maine',
   'Michigan',
-  'Minnesota'
+  'Minnesota',
   'Missouri',
   'Mississippi',
   'Montana',

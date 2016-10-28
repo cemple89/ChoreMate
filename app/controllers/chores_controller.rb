@@ -2,16 +2,16 @@ require 'pry'
 class ChoresController < ApplicationController
 
   def new
-    @user = User.find(4)
-    @apartment = @user.apartment
+    @user = current_user
+    @apartment = Apartment.find(@user.apartment_id)
     @chore = Chore.new
     @points_collection = Chore::POINTS
   end
 
   def create
     @points_collection = Chore::POINTS
-    @user = User.find(4)
-    @apartment = @user.apartment
+    @user = current_user
+    @apartment = Apartment.find(@user.apartment_id)
     @chore = Chore.new(chore_params)
     @chore.apartment = @apartment
     @chore.user = @user
@@ -22,7 +22,7 @@ class ChoresController < ApplicationController
     @chore.save
     if @chore.save
       flash[:notice] = 'Chore added successfully'
-      redirect_to root_path
+      redirect_to apartment_path(@apartment)
     else
       flash[:notice] = @chore.errors.full_messages.join(", ")
       render :new
@@ -30,15 +30,15 @@ class ChoresController < ApplicationController
   end
 
   def index
-    @user = User.find(4)
+    @user = current_user
     @apartment = @user.apartment
     @chores = Chore.find_by(apartment: @apartment)
     @users = @apartment.users
   end
 
   def edit
-    @user = User.find(4)
-    @apartment = @user.apartment
+    @user = current_user
+    @apartment = Apartment.find(@user.apartment_id)
     @chore = Chore.find(params[:id])
     @chore.update_attributes(user_id: params[:user_id])
     @chore.last_completed = Time.now
@@ -50,15 +50,15 @@ class ChoresController < ApplicationController
       message: "You now own this chore!",
       name: @chore.user.name,
       chore_id: @chore.id,
-      last_completed: Time.now.localtime.strftime('%b %e'),
-      due_by: @new_due_by.localtime.strftime('%b %e')
+      last_completed: Time.now.localtime.strftime('%I:%M:%S %p'),
+      due_by: @new_due_by.localtime.strftime('%I:%M:%S %p')
 
     }, status: :ok
 
   end
 
   def update
-    @user = User.find(4)
+    @user = current_user
   end
 
   def destroy

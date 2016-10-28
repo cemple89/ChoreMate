@@ -20,16 +20,14 @@
         <% if current_user %>
           Welcome <strong><%= current_user.name %></strong>!
           <%= link_to "Sign out", signout_path, id: "sign_out" %>
+          <% if current_user.admin %>
+            <%= link_to "Add a Roommate", edit_user_path %>
+          <% end %>
         <% else %>
           <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
         <% end %>
       </div>
 
-      <div id="admin-widget">
-        <% if current_user.admin? %>
-          <%= link_to "Add Roomate", edit_user_path, id: "add_roommate" %>
-        <% end %>
-      </div>
 
 
     <% flash.each do |key, value| %>

@@ -9,7 +9,6 @@ $(document).ready(function() {
     score = self.data('score');
     last_completed = self.data('last_completed');
     completion_interval = self.data('completion_interval');
-
     var claim_chore = $.ajax({
        type: "GET",
        data: {user_id: user,
@@ -17,8 +16,8 @@ $(document).ready(function() {
               completion_interval: completion_interval
              },
        url: `/chores/${chore}/edit`
-
     })
+
     claim_chore.done(data => {
       var arr = $('.mychore')
       for(let chore in arr)
