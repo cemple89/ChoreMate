@@ -6,6 +6,21 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
 
+  def edit
+    @user = current_user
+    @apartment = @user.apartment
+    new_roommate = User.find(params[:email])
+    new_roommate.apartment = @user.apartment
+    new_roommate.save
+
+    if new_roommate.save
+      flash[:notice] = "Roommate successfully added!"
+      redirect_to apartment_path(@apartment)
+    else
+      flash[:notice] = @user.errors.full_messages.join(", ")
+    end 
+  end
+
 
   def update
     @user = User.current_user

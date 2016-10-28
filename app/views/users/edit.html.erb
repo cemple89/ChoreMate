@@ -1,0 +1,19 @@
+<div class="CreateTitle">
+  <h3> Enter Your Roommate's Email Address </h3>
+</div>
+
+<div class="new_roommate_form">
+  <%= form_for(new_roommate) do |c| %>
+  <div class="field">
+    <%= c.label :email, "Email" %><br>
+    <%= c.text_field :address %>
+  </div>
+  <div class="actions">
+    <%= c.submit "Create Apartment" %>
+  </div>
+  <% end %>
+</div>
+
+<div class="back">
+  <%= link_to 'Back', apartment_path(@apartment) %>
+</div>
