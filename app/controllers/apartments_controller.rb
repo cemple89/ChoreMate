@@ -1,11 +1,5 @@
 class ApartmentsController < ApplicationController
 
-  def new
-
-  end
-
-  def create
-  end
 
   def show
     @user = User.find(2)
