@@ -1,30 +1,30 @@
-![Build Status](https://codeship.com/projects/jECgx3nej3BzH7gXZvtQ7aEKqIF8eBFGM/status?branch=master)
-![Code Climate](https://codeclimate.com/github/cemple89/ChoreMate.png)
-![Coverage Status](https://coveralls.io/repos/cemple89/choremate/badge.png)
 
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# ChoreMate
+==========
 
-Things you may want to cover:
+Application link: https://choremate.herokuapp.com/
 
-* Ruby version
+I created ChoreMate as my "Breakable Toy" final project during my time as an apprentice with Launch Academy. I was inspired to create it by the time I spent serving as an Americorps fellow with Episcopal Service Corps, living in an intentional community, sharing resources with 5 other young people. One challenge we faced was finding a way of sharing chores that was both equitable and amicable. ChoreMate represents my attempt to create an application for people in communal living environments to share chores without an overly top-down delegation strategy.
 
-* System dependencies
+Features:
+------------------
+Users of ChoreMate can create chores for their apartment. Chores are assigned a point value, based on the amount of labor entailed, as well as a completion interval, that is used to update the chore with a new due date each time the chore is marked as completed, or "claimed". Chores are sorted and color-coded based on their due-date and user scores are viewable by all, as a public yet impersonal measure of accountability.
 
-* Configuration
+Outline of Technologies:
+------------------------
+- Ruby on Rails (2.3.1)
+- AJAX (index page CLAIM and DELETE funcitonality)
+- PostgreSQL
+- ActiveRecord
+- Materialize & CSS
+- Capybara
+- Factory Girl
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# Chore Mate
-Your app description, here.
+To Run Locally:
+---------------------
+1. Run rake db:migrate to acquire databases.
+2. Make sure to bundle to install any Ruby dependencies.
+3. Run rails server
