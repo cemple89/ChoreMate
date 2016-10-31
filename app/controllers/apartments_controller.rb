@@ -3,7 +3,13 @@ class ApartmentsController < ApplicationController
 
   def index
     @user = current_user
+    if params[:search]
+      @apartments = Apartment.search params[:search]
+    else
+      @apartments = Apartment.all
+    end
   end
+
 
   def new
     @state_collection = Apartment::STATES
@@ -17,7 +23,7 @@ class ApartmentsController < ApplicationController
 
     if @apartment.save
       @user.apartment_id = @apartment.id
-      @user.admin == true
+      @user.admin ^= true
       @user.save
       redirect_to apartment_path(@apartment)
       flash[:notice] = "Apartment created successfully"

@@ -18,4 +18,10 @@ class User < ActiveRecord::Base
 
   belongs_to :apartment, optional: true
   has_many :chores
+
+  def self.search(search)
+    search_condition = search
+    find(:all, :condition => ['email LIKE?', search_condition])
+  end
+
 end

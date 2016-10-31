@@ -6,12 +6,21 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
 
+
+  def index
+    if params[:search]
+      @users = User.search params[:search]
+    else
+      @users = User.all
+    end
+  end
+
+
   def edit
     @user = current_user
     @apartment = @user.apartment
-    new_roommate = User.find(params[:email])
-    new_roommate.apartment = @user.apartment
-    new_roommate.save
+    @new_roommate.apartment = @user.apartment
+    @new_roommate.save
 
     if new_roommate.save
       flash[:notice] = "Roommate successfully added!"
