@@ -17,7 +17,7 @@
   <p id="chore-claim-message"></p>
 </div>
 
-<% if !@chores.any? %>
+<% if @chores.any? %>
   <div class="allchores">
   <% @chores.each do |chore| %>
     <% @due_index = chore.due_by - Time.now %>

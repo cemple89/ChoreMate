@@ -5,4 +5,4 @@ FactoryGirl.define do
     sequence(:name) { |n| "Person ##{n}"}
     sequence(:chorescore) { |n| "#{n}"}
   end
-end 
+end
