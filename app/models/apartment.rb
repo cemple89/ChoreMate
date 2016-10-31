@@ -66,8 +66,4 @@ class Apartment < ActiveRecord::Base
   validates :zip_code, numericality: { only_integer: true }, length: { is: 5 }
 
 
-  def self.search(search)
-    search_condition = search 
-    find(:all, :conditions => ['address LIKE ?', search_condition])
-  end
 end

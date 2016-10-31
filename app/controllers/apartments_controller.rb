@@ -1,16 +1,6 @@
 class ApartmentsController < ApplicationController
 
 
-  def index
-    @user = current_user
-    if params[:search]
-      @apartments = Apartment.search params[:search]
-    else
-      @apartments = Apartment.all
-    end
-  end
-
-
   def new
     @state_collection = Apartment::STATES
     @apartment = Apartment.new
