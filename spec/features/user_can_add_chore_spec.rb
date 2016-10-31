@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'User can' do
 
   let!(:apartment_1) { FactoryGirl.create(:apartment) }
-  let!(:user_1) { FactoryGirl.create(:user, id: 3, apartment_id: apartment_1.id) }
+  let!(:user_1) { FactoryGirl.create(:user, id: 1, apartment_id: apartment_1.id) }
 
 
   feature 'add a new chore' do
@@ -24,8 +24,8 @@ describe 'User can' do
 
       expect(page).to have_content 'Chore added successfully'
       expect(page).to have_content 'Swiffer the Kitchen'
-      expect(page).to have_content 'Worth 2 points'
-      expect(page).to have_content "Last Completed By #{user_1.name} on " + Time.now.localtime.strftime('%b %e, %l:%M %p')
+      expect(page).to have_content '2 points'
+      expect(page).to have_content "Completed By #{user_1.name} on " + Time.now.localtime.strftime('%b %e')
     end
 
     scenario 'user does not provide proper information for a chore' do
