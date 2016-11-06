@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Invitation::User
+
 
 
   def self.from_omniauth(auth)

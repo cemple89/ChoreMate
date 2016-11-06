@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161029210534) do
+ActiveRecord::Schema.define(version: 20161106144956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(version: 20161029210534) do
     t.datetime "updated_at",          null: false
     t.index ["apartment_id"], name: "index_chores_on_apartment_id", using: :btree
     t.index ["user_id"], name: "index_chores_on_user_id", using: :btree
+  end
+
+  create_table "invites", force: :cascade do |t|
+    t.string   "email"
+    t.string   "token"
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.integer  "invitable_id"
+    t.string   "invitable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["email"], name: "index_invites_on_email", using: :btree
+    t.index ["invitable_id", "invitable_type"], name: "index_invites_on_invitable_id_and_invitable_type", using: :btree
+    t.index ["recipient_id"], name: "index_invites_on_recipient_id", using: :btree
+    t.index ["sender_id"], name: "index_invites_on_sender_id", using: :btree
+    t.index ["token"], name: "index_invites_on_token", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

@@ -27,7 +27,6 @@ class ApartmentsController < ApplicationController
 
   def show
     @user = current_user
-    binding.pry
     @apartment = Apartment.find(@user.apartment_id)
     if @apartment.chores
       @chores = @apartment.chores.order('due_by ASC')
