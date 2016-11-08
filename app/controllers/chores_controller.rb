@@ -38,11 +38,11 @@ class ChoresController < ApplicationController
   def edit
     @user = User.find(1)
     @apartment = @user.apartment
+    @points_collection = Chore::POINTS
     @chore = Chore.find(params[:id])
     @chore.update_attributes(user_id: params[:user_id])
     @chore.last_completed = Time.now
     @chore.due_by = @chore.last_completed + params[:completion_interval].to_i.days
-    @points_collection = Chore::POINTS
     @new_due_by = @chore.due_by
     @chore.save
     render json: {

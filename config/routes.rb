@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'apartments#show'
+  root 'apartments#index'
 
   resources :apartments, only:[:show, :destroy, :edit, :create, :new]
   resources :users
