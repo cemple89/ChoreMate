@@ -1,0 +1,29 @@
+<div class="CreateTitle">
+  <h3> Add Your Apartment </h3>
+</div>
+
+<div class="new_chore_form">
+  <%= form_for(@apartment) do |c| %>
+  <div class="field">
+    <%= c.label :name, "Name" %><br>
+    <%= c.text_field :name %>
+  </div>
+  <div class="field">
+    <%= c.label :zip_code, "Zip Code" %><br>
+    <%= c.text_field :zip_code %>
+  </div>
+  <div class="field">
+    <%= c.label :secret, "Secret" %><br>
+    <%= c.text_field :secret %>
+  </div>
+  <div class="addapartment">
+    <div class="actions">
+      <%= c.submit "Add Apartment" %>
+    </div>
+  </div>
+  <% end  %>
+</div>
+
+<div class="back">
+  <%= link_to 'Back', root_path %>
+</div>

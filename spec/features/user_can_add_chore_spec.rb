@@ -13,7 +13,7 @@ describe 'User can' do
 
       click_link 'Create a New Chore'
 
-      expect(page).to have_content "Create Chore for #{apartment_1.address} "
+      expect(page).to have_content "Create Chore for #{apartment_1.name} "
 
       fill_in 'Name', with: 'Swiffer the Kitchen'
       fill_in 'Days Between Completion', with: '7'

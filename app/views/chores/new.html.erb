@@ -1,5 +1,5 @@
 <div class="CreateTitle">
-  <h3> Create Chore for <%= @apartment.address %> </h3>
+  <h3> Create Chore for <%= @apartment.name %> </h3>
 </div>
 
 <div class="new_chore_form">
@@ -25,5 +25,5 @@
 </div>
 
 <div class="back">
-  <%= link_to 'Back', root_path %>
+  <%= link_to 'Back', apartment_path(@apartment) %>
 </div>

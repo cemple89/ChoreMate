@@ -7,7 +7,7 @@ class Chore < ActiveRecord::Base
            ]
 
   belongs_to :apartment
-  belongs_to :user
+  belongs_to :user 
 
   validates :name, presence: true
   validates :points, presence: true

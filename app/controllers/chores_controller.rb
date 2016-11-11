@@ -21,7 +21,7 @@ class ChoresController < ApplicationController
     @chore.save
     if @chore.save
       flash[:notice] = 'Chore added successfully'
-      redirect_to root_path
+      redirect_to apartment_path(@apartment)
     else
       flash[:notice] = @chore.errors.full_messages.join(", ")
       render :new
