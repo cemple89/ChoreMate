@@ -4,7 +4,6 @@
 # ChoreMate
 ==========
 
-Application link: https://choremate.herokuapp.com/
 
 I created ChoreMate as my "Breakable Toy" final project during my time as an apprentice with Launch Academy. I was inspired to create it by the time I spent serving as an Americorps fellow with Episcopal Service Corps, living in an intentional community, sharing resources with 5 other young people. One challenge we faced was finding a way of sharing chores that was both equitable and amicable. ChoreMate represents my attempt to create an application for people in communal living environments to share chores without an overly top-down delegation strategy.
 
